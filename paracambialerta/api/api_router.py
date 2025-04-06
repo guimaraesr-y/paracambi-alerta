@@ -12,5 +12,5 @@ from paracambialerta.api.api_v1 import ApiRouterV1
 router_v1 = ApiRouterV1()
 
 urlpatterns = [
-    path('', include((router_v1.urlpatterns, 'api_v1'))),
+    path('', include(router_v1.urlpatterns)),
 ]

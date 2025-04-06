@@ -39,5 +39,4 @@ class ApiRouterV1:
         """
         Returns the urlpatterns for the API.
         """
-        return [path('v1/', include((self.urls, 'api_v1')))]
-
+        return [path('v1/', include(self.urls))]

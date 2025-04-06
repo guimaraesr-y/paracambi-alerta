@@ -4,7 +4,7 @@ from paracambialerta.user import views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', views.UserViewSet, basename='user')
+router.register(r'groups', views.GroupViewSet, basename='group')
 
 urlpatterns = router.urls
