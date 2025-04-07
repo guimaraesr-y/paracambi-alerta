@@ -3,7 +3,9 @@ from dataclasses import dataclass
 
 @dataclass
 class CreateUserInput:
-    name: str
+    first_name: str
+    last_name: str
+    username: str
     email: str
     password: str
 
@@ -11,5 +13,7 @@ class CreateUserInput:
 @dataclass
 class CreateUserOutput:
     id: int
-    name: str
+    first_name: str
+    last_name: str
+    username: str
     email: str

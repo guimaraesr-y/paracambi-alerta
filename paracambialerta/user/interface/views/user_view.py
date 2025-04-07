@@ -12,7 +12,7 @@ class UserViewSet(viewsets.ViewSet):
     """
 
     def create(self, request):
-        serializer = UserInputSerializer(request.data)
+        serializer = UserInputSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         user_data = serializer.to_dto()
@@ -20,7 +20,7 @@ class UserViewSet(viewsets.ViewSet):
         created_user = use_case.execute(user_data)
 
         output_serializer = UserOutputSerializer.from_dto(created_user)
-        return output_serializer
+        return Response(output_serializer.data)
 
     def list(self, request):
         return Response({'hello': 'world'})
