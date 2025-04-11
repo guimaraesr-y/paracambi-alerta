@@ -3,7 +3,10 @@ from rest_framework import viewsets
 
 from paracambialerta.user.interface.serializers import UserInputSerializer
 from paracambialerta.user.interface.serializers.user_serializer import UserOutputSerializer
-from paracambialerta.user.use_cases.create_user import CreateUser
+from paracambialerta.user.use_cases import (
+    CreateUser,
+    ListUsers,
+)
 
 
 class UserViewSet(viewsets.ViewSet):
@@ -23,4 +26,10 @@ class UserViewSet(viewsets.ViewSet):
         return Response(output_serializer.data)
 
     def list(self, request):
-        return Response({'hello': 'world'})
+        output_serializer = UserOutputSerializer.from_dto(request.user)
+
+        use_case = ListUsers()
+        users_data = use_case.execute()
+
+        output_serializer = UserOutputSerializer(users_data, many=True)
+        return Response(output_serializer.data)
