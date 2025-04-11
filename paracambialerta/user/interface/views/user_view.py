@@ -3,8 +3,10 @@ from rest_framework import viewsets
 
 from paracambialerta.user.interface.serializers import UserInputSerializer
 from paracambialerta.user.interface.serializers.user_serializer import UserOutputSerializer
-from paracambialerta.user.use_cases.create_user import CreateUser
-from paracambialerta.user.use_cases.list_users import ListUsers
+from paracambialerta.user.use_cases import (
+    CreateUser,
+    ListUsers,
+)
 
 
 class UserViewSet(viewsets.ViewSet):

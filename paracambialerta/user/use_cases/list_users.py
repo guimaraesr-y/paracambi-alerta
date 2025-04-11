@@ -1,4 +1,4 @@
-from paracambialerta.user.infra.repositories.django_user_repository import DjangoUserRepository
+from paracambialerta.user.infra.repositories import DjangoUserRepository
 
 
 class ListUsers:
